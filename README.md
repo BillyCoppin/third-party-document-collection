@@ -1,2 +1,220 @@
-# third-party-document-collection
-Third party document process for signing. These are the documents we need to collect for loading.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Third Party Document Requirements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 10px;
+        }
+        .selection-group {
+            margin: 25px 0;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #555;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+        }
+        select:focus {
+            outline: none;
+            border-color: #0066cc;
+        }
+        .results {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            border-radius: 4px;
+            display: none;
+        }
+        .results.show {
+            display: block;
+        }
+        .results h2 {
+            margin-top: 0;
+            color: #0066cc;
+            font-size: 20px;
+        }
+        .results h3 {
+            color: #0066cc;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .results ol, .results ul {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        .results li {
+            margin: 12px 0;
+            line-height: 1.8;
+        }
+        .sub-list {
+            margin-top: 8px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📄 Third Party Document Requirements</h1>
+        <div class="selection-group">
+            <label for="thirdParty">Select Third Party:</label>
+            <select id="thirdParty" onchange="showResults()">
+                <option value="">-- Select Third Party --</option>
+                <option value="redhat">RedHat</option>
+                <option value="expertlabs">ExpertLabs</option>
+                <option value="tls">TLS</option>
+                <option value="css">CSS</option>
+            </select>
+        </div>
+        <div class="selection-group">
+            <label for="clipLevel">Select CLIP Level:</label>
+            <select id="clipLevel" onchange="showResults()">
+                <option value="">-- Select CLIP Level --</option>
+                <option value="above20k">&gt; $20k</option>
+                <option value="0to20k">$0 to $20k</option>
+                <option value="0toneg20k">$0 to -$20k</option>
+                <option value="belowneg20k">&lt; -$20k</option>
+            </select>
+        </div>
+        <div id="results" class="results">
+            <div id="content"></div>
+        </div>
+    </div>
+    <script>
+        const documentRequirements = {
+            redhat: {
+                above20k: {
+                    documents: [
+                        "Email approved Revenue splitting checklist",
+                        "Signed Task Order Form (TOF)"
+                    ],
+                    steps: [
+                        "Opp owner to reach out to RedHat and request Revenue Splitting Checklist and Task Order Form (TOF).",
+                        "Opp Owner to review the documentation and work with RedHat if any details are incorrect.",
+                        "When you are happy with the documents, Risk (Ian Potts) will need to review the DoU/Rev Splitting Checklist & TOF. Once Ian reviews/approves we require the following email approvals:<div class='sub-list'>- RedHat contact who is named in the revenue splitting checklist<br>- IBMC contact who is named in the revenue splitting checklist<br>- Public Sector CFO (Karen Burgess)<br>- Public Sector Lead (Matt Pickersgill)</div>You can either request these yourself, or forward the documents to Change and we can request them but any project-specific follow up questions will be directed to yourselves.",
+                        "Produce the pricing model including the RedHat pricing as passthrough to Home Office Pricing (HOPRICNG@uk.ibm.com).",
+                        "Normal steps follow, this will go through DCA release and once approved can be released to the client.",
+                        "Once the client signs, we need to go back to RedHat and ask them to sign the TOF. Provide Change the signed TOF, and then we have all of our documents ready for loading."
+                    ]
+                },
+                "0to20k": {
+                    documents: ["Placeholder Document A", "Placeholder Document B"],
+                    steps: ["Placeholder Step 1", "Placeholder Step 2"]
+                },
+                "0toneg20k": {
+                    documents: ["Placeholder Document C"],
+                    steps: ["Placeholder Step 1"]
+                },
+                belowneg20k: {
+                    documents: ["Placeholder Document D"],
+                    steps: ["Placeholder Step 1"]
+                }
+            },
+            expertlabs: {
+                above20k: {
+                    documents: ["Placeholder"],
+                    steps: ["Placeholder"]
+                },
+                "0to20k": {
+                    documents: ["Placeholder"],
+                    steps: ["Placeholder"]
+                },
+                "0toneg20k": {
+                    documents: ["Placeholder"],
+                    steps: ["Placeholder"]
+                },
+                belowneg20k: {
+                    documents: ["Placeholder"],
+                    steps: ["Placeholder"]
+                }
+            },
+            tls: {
+                above20k: {
+                    documents: ["Placeholder"],
+                    steps: ["Placeholder"]
+                },
+                "0to20k": {
+                    documents: ["Placeholder"],
+                    steps: ["Placeholder"]
+                },
+                "0toneg20k": {
+                    documents: ["Placeholder"],
+                    steps: ["Placeholder"]
+                },
+                belowneg20k: {
+                    documents: ["Placeholder"],
+                    steps: ["Placeholder"]
+                }
+            },
+            css: {
+                above20k: {
+                    documents: ["Placeholder"],
+                    steps: ["Placeholder"]
+                },
+                "0to20k": {
+                    documents: ["Placeholder"],
+                    steps: ["Placeholder"]
+                },
+                "0toneg20k": {
+                    documents: ["Placeholder"],
+                    steps: ["Placeholder"]
+                },
+                belowneg20k: {
+                    documents: ["Placeholder"],
+                    steps: ["Placeholder"]
+                }
+            }
+        };
+        function showResults() {
+            const thirdParty = document.getElementById('thirdParty').value;
+            const clipLevel = document.getElementById('clipLevel').value;
+            const resultsDiv = document.getElementById('results');
+            const contentDiv = document.getElementById('content');
+            if (thirdParty && clipLevel) {
+                const data = documentRequirements[thirdParty][clipLevel];
+                let html = '<h2>Required Documents:</h2><ol>';
+                data.documents.forEach(doc => {
+                    html += `<li>${doc}</li>`;
+                });
+                html += '</ol>';
+                html += '<h3>Step by Step:</h3><ol>';
+                data.steps.forEach(step => {
+                    html += `<li>${step}</li>`;
+                });
+                html += '</ol>';
+                contentDiv.innerHTML = html;
+                resultsDiv.classList.add('show');
+            } else {
+                resultsDiv.classList.remove('show');
+            }
+        }
+    </script>
+</body>
+</html>
