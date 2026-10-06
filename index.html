@@ -85,6 +85,7 @@
             margin: 15px 0;
             border-radius: 4px;
             color: #856404;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -198,8 +199,7 @@
                         "Once the client signs, we should already have all of the approvals in place for loading."
                     ]
                 }
-            },
-            tls: {
+            },            tls: {
                 above25k: {
                     documents: [
                         "DoU / Revenue Splitting Checklist",
@@ -260,3 +260,58 @@
                     steps: [],
                     notice: "This potentially does not require revenue splitting and could be cost recovery. Please seek guidance from either Finance or your CFO."
                 },
+                "0toneg25k": {
+                    documents: [],
+                    steps: [],
+                    notice: "This potentially does not require revenue splitting and could be cost recovery. Please seek guidance from either Finance or your CFO."
+                },
+                belowneg25k: {
+                    documents: [
+                        "CSS GPE",
+                        "CSS pricing approval (screenshot from Conga / SalesForce)"
+                    ],
+                    steps: [
+                        "Opp owner to reach out to CSS and request CSS GPE and CSS pricing approval (this is usually a screenshot from Conga/SalesForce).",
+                        "Opp Owner to review the pricing and work with CSS if any details are incorrect.",
+                        "Produce the pricing model including the CSS pricing as passthrough to Home Office Pricing (HOPRICNG@uk.ibm.com). [check with Connor where we can state this is CSS for it to be obvious in writing in GPE]",
+                        "Normal steps follow, this will go through DCA release and once approved can be released to the client.",
+                        "Once the client signs, we should already have all of the approvals in place for loading."
+                    ]
+                }
+            }
+        };
+        function showResults() {
+            const thirdParty = document.getElementById('thirdParty').value;
+            const clipLevel = document.getElementById('clipLevel').value;
+            const resultsDiv = document.getElementById('results');
+            const contentDiv = document.getElementById('content');
+            if (thirdParty && clipLevel) {
+                const data = documentRequirements[thirdParty][clipLevel];
+                let html = '';
+                if (data.notice) {
+                    html += `<div class="notice">${data.notice}</div>`;
+                } else {
+                    if (data.documents && data.documents.length > 0) {
+                        html += '<h2>Required Documents:</h2><ol>';
+                        data.documents.forEach(doc => {
+                            html += `<li>${doc}</li>`;
+                        });
+                        html += '</ol>';
+                    }
+                    if (data.steps && data.steps.length > 0) {
+                        html += '<h3>Step by Step:</h3><ol>';
+                        data.steps.forEach(step => {
+                            html += `<li>${step}</li>`;
+                        });
+                        html += '</ol>';
+                    }
+                }
+                contentDiv.innerHTML = html;
+                resultsDiv.classList.add('show');
+            } else {
+                resultsDiv.classList.remove('show');
+            }
+        }
+    </script>
+</body>
+</html>
