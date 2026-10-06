@@ -78,6 +78,14 @@
             margin-top: 8px;
             margin-left: 20px;
         }
+        .notice {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            color: #856404;
+        }
     </style>
 </head>
 <body>
@@ -125,12 +133,14 @@
                     ]
                 },
                 "0to25k": {
-                    documents: ["Placeholder - Awaiting Details"],
-                    steps: ["Placeholder - Awaiting Details"]
+                    documents: [],
+                    steps: [],
+                    notice: "This potentially does not require revenue splitting and could be cost recovery. Please seek guidance from either Finance or your CFO."
                 },
                 "0toneg25k": {
-                    documents: ["Placeholder - Awaiting Details"],
-                    steps: ["Placeholder - Awaiting Details"]
+                    documents: [],
+                    steps: [],
+                    notice: "This potentially does not require revenue splitting and could be cost recovery. Please seek guidance from either Finance or your CFO."
                 },
                 belowneg25k: {
                     documents: [
@@ -164,12 +174,14 @@
                     ]
                 },
                 "0to25k": {
-                    documents: ["Placeholder - Awaiting Details"],
-                    steps: ["Placeholder - Awaiting Details"]
+                    documents: [],
+                    steps: [],
+                    notice: "This potentially does not require revenue splitting and could be cost recovery. Please seek guidance from either Finance or your CFO."
                 },
                 "0toneg25k": {
-                    documents: ["Placeholder - Awaiting Details"],
-                    steps: ["Placeholder - Awaiting Details"]
+                    documents: [],
+                    steps: [],
+                    notice: "This potentially does not require revenue splitting and could be cost recovery. Please seek guidance from either Finance or your CFO."
                 },
                 belowneg25k: {
                     documents: [
@@ -189,64 +201,62 @@
             },
             tls: {
                 above25k: {
-                    documents: ["Placeholder - Awaiting Details"],
-                    steps: ["Placeholder - Awaiting Details"]
+                    documents: [
+                        "DoU / Revenue Splitting Checklist",
+                        "TLS quotes"
+                    ],
+                    steps: [
+                        "Opp owner to reach out to TLS and request DoU/Revenue Splitting Checklist & TLS quotes.",
+                        "Opp Owner to review the documentation and work with TLS if any details are incorrect.",
+                        "When you are happy with the documents, Risk (Ian Potts) will need to review the DoU/Rev Splitting Checklist.",
+                        "Produce the pricing model including the TLS pricing as passthrough to Home Office Pricing (HOPRICNG@uk.ibm.com).",
+                        "Normal steps follow, this will go through DCA release and once approved can be released to the client.",
+                        "When the client signs the contract/part C, the TLS DoU will need to be e-signed by the following:<div class='sub-list'>- PBL Business Executive (TLS contact)<br>- UKI Technology Controller (TLS contact)<br>- Public Sector CFO (Karen Burgess)<br>- Public Sector Lead (Matt Pickersgill)</div>",
+                        "We should have all of the approvals in place and documents received for loading."
+                    ]
                 },
                 "0to25k": {
-                    documents: ["Placeholder - Awaiting Details"],
-                    steps: ["Placeholder - Awaiting Details"]
+                    documents: [],
+                    steps: [],
+                    notice: "This potentially does not require revenue splitting and could be cost recovery. Please seek guidance from either Finance or your CFO."
                 },
                 "0toneg25k": {
-                    documents: ["Placeholder - Awaiting Details"],
-                    steps: ["Placeholder - Awaiting Details"]
+                    documents: [],
+                    steps: [],
+                    notice: "This potentially does not require revenue splitting and could be cost recovery. Please seek guidance from either Finance or your CFO."
                 },
                 belowneg25k: {
-                    documents: ["Placeholder - Awaiting Details"],
-                    steps: ["Placeholder - Awaiting Details"]
+                    documents: [
+                        "DoU / Revenue Splitting Checklist",
+                        "TLS quotes"
+                    ],
+                    steps: [
+                        "Opp owner to reach out to TLS and request DoU/Revenue Splitting Checklist & TLS quotes.",
+                        "Opp Owner to review the documentation and work with TLS if any details are incorrect.",
+                        "When you are happy with the documents, Risk (Ian Potts) will need to review the DoU/Rev Splitting Checklist.",
+                        "Produce the pricing model including the TLS pricing as passthrough to Home Office Pricing (HOPRICNG@uk.ibm.com).",
+                        "Normal steps follow, this will go through DCA release and once approved can be released to the client.",
+                        "When the client signs the contract/part C, the TLS DoU will need to be e-signed by the following:<div class='sub-list'>- PBL Business Executive (TLS contact)<br>- UKI Technology Controller (TLS contact)<br>- Public Sector CFO (Karen Burgess)<br>- Public Sector Lead (Matt Pickersgill)</div>",
+                        "We should have all of the approvals in place and documents received for loading."
+                    ]
                 }
             },
             css: {
                 above25k: {
-                    documents: ["Placeholder - Awaiting Details"],
-                    steps: ["Placeholder - Awaiting Details"]
+                    documents: [
+                        "CSS GPE",
+                        "CSS pricing approval (screenshot from Conga / SalesForce)"
+                    ],
+                    steps: [
+                        "Opp owner to reach out to CSS and request CSS GPE and CSS pricing approval (this is usually a screenshot from Conga/SalesForce).",
+                        "Opp Owner to review the pricing and work with CSS if any details are incorrect.",
+                        "Produce the pricing model including the CSS pricing as passthrough to Home Office Pricing (HOPRICNG@uk.ibm.com). [check with Connor where we can state this is CSS for it to be obvious in writing in GPE]",
+                        "Normal steps follow, this will go through DCA release and once approved can be released to the client.",
+                        "Once the client signs, we should already have all of the approvals in place for loading."
+                    ]
                 },
                 "0to25k": {
-                    documents: ["Placeholder - Awaiting Details"],
-                    steps: ["Placeholder - Awaiting Details"]
+                    documents: [],
+                    steps: [],
+                    notice: "This potentially does not require revenue splitting and could be cost recovery. Please seek guidance from either Finance or your CFO."
                 },
-                "0toneg25k": {
-                    documents: ["Placeholder - Awaiting Details"],
-                    steps: ["Placeholder - Awaiting Details"]
-                },
-                belowneg25k: {
-                    documents: ["Placeholder - Awaiting Details"],
-                    steps: ["Placeholder - Awaiting Details"]
-                }
-            }
-        };
-        function showResults() {
-            const thirdParty = document.getElementById('thirdParty').value;
-            const clipLevel = document.getElementById('clipLevel').value;
-            const resultsDiv = document.getElementById('results');
-            const contentDiv = document.getElementById('content');
-            if (thirdParty && clipLevel) {
-                const data = documentRequirements[thirdParty][clipLevel];
-                let html = '<h2>Required Documents:</h2><ol>';
-                data.documents.forEach(doc => {
-                    html += `<li>${doc}</li>`;
-                });
-                html += '</ol>';
-                html += '<h3>Step by Step:</h3><ol>';
-                data.steps.forEach(step => {
-                    html += `<li>${step}</li>`;
-                });
-                html += '</ol>';
-                contentDiv.innerHTML = html;
-                resultsDiv.classList.add('show');
-            } else {
-                resultsDiv.classList.remove('show');
-            }
-        }
-    </script>
-</body>
-</html>
